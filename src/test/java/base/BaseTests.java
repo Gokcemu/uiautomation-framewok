@@ -12,7 +12,7 @@ import static utils.Config.*;
 public class BaseTests {
     private WebDriver driver;
     protected LoginPage loginPage;
-    public ProductsPage productsPage;
+    protected ProductsPage productsPage;
 
    @BeforeClass
    public void setUp(){
