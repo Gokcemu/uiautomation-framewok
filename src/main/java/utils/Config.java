@@ -21,4 +21,9 @@ public class Config {
     public static final String NAME_Z_TO_A = "za";
     public static final String PRICE_LOW_TO_HIGH = "lohi";
     public static final String PRICE_HIGH_TO_LOW = "hilo";
+    //Check Out Data
+    public static final String FIRST_NAME = "DummyFirstName";
+    public static final String LAST_NAME = "DummyLastName";
+    public static final String POSTAL_CODE = "Dummy_PostalCode";
+
 }

@@ -1,9 +1,11 @@
 package login;
 
+import base.BaseTests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ProductsPage;
@@ -24,15 +26,20 @@ public class LoginTests {
         loginPage = new LoginPage(driver);
         driver.manage().window().fullscreen();
     }
+    
+    @BeforeMethod
+    public void goLogin(){
+        driver.get(LOGIN_URL);
+    }
 
     @AfterClass
     private void tearDown(){
         driver.quit();
     }
 
+
     @Test
     public void testNullUsernameandPassword(){
-
         loginPage = new LoginPage(driver);
         loginPage.setUsernameField(NULL_USER);
         loginPage.setUsernameField(NULL_PASS);
@@ -43,8 +50,7 @@ public class LoginTests {
     }
 
     @Test
-    public void testWrongUsername(){
-
+    public void testInvalidUsername(){
         loginPage.setUsernameField(FAIL_USER);
         loginPage.setPasswordField(DEFAULT_PASS);
         loginPage.clickLoginButton();
@@ -54,8 +60,7 @@ public class LoginTests {
     }
 
     @Test
-    public void testWrongPassword(){
-
+    public void testInvalidPassword(){
         loginPage.setUsernameField(DEFAULT_USER);
         loginPage.setPasswordField(FAIL_PASS);
         loginPage.clickLoginButton();
@@ -69,7 +74,7 @@ public class LoginTests {
         loginPage.setUsernameField(DEFAULT_USER);
         loginPage.setPasswordField(DEFAULT_PASS);
         ProductsPage productsPage = loginPage.clickLoginButton();
-        assertEquals(productsPage.getPageTitle(), "PRODUCTS", "Login Failed");
-        LoginPage loginPage = productsPage.returnLoginPage();
+        assertEquals(productsPage.getPageTitle(), "PRODUCTS",
+                "Login Failed");
     }
 }

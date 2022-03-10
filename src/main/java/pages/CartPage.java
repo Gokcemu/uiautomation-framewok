@@ -10,7 +10,6 @@ import java.util.List;
 
 public class CartPage extends BasePage {
     private WebDriver driver;
-    private By cartPageTitle = By.xpath("//span[@class='title']");
     private By quantity = By.xpath("//div[@class='cart_quantity_label']");
     private By description = By.xpath("//div[@class='cart_desc_label']");
     private By continueShoppingButton = By.id("continue-shopping");
@@ -25,7 +24,7 @@ public class CartPage extends BasePage {
     }
 
     public String getCartPageTitle() {
-        return driver.findElement(cartPageTitle).getText();
+        return driver.findElement(pageTitle).getText();
     }
 
     public ProductsPage clickContinueShopping() {
@@ -55,6 +54,26 @@ public class CartPage extends BasePage {
             }
         }
         return null;
+    }
+
+    public String getInventoryName(String InventoryName){
+        WebElement inventory = findInventory(InventoryName);
+        return inventory.findElement(inventoryItems).getText();
+    }
+
+    public String getInventoryPrice(String InventoryName){
+        WebElement inventory = findInventory(InventoryName);
+        return inventory.findElement(inventoryItemPrice).getText();
+    }
+
+    public String getInventoryDesc(String InventoryName){
+        WebElement inventory = findInventory(InventoryName);
+        return inventory.findElement(inventoryItemDesc).getText();
+    }
+
+    public boolean checkProductinCart(String InventoryName){
+        ExpectedConditions.invisibilityOfElementLocated(inventoryItems);
+        return true;
     }
 
     public void removeProductCartButton(String InventoryName) {

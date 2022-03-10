@@ -22,8 +22,8 @@ public class InventoryTests extends BaseTests {
     @Test
     public void testSelectInventoryItem(){
         InventoryDetailsPage inventoryDetailsPage = productsPage.clickProductName(SAUCE_LABS_BACKPACK);
-        assertEquals(inventoryDetailsPage.getInventoryDetailName(), SAUCE_LABS_BACKPACK,
-                "Select Inventory Item Test Failed");
+        assertEquals(inventoryDetailsPage.getInventoryName(), SAUCE_LABS_BACKPACK,
+                "Invalid inventory selected");
     }
 
 }

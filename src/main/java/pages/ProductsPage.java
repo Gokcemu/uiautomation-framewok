@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 
 public class ProductsPage extends BasePage {
 
-    private By pageTitle      = By.xpath("//span[@class='title']");
     private By inventoryItems = By.xpath("//div[@class='inventory_item_name']");
     private By inventoryTitle = By.xpath("//div[@class='inventory_item_name']");
     private By inventoryItemPrice = By.xpath("//div[@class='inventory_item_price']");
@@ -75,9 +74,29 @@ public class ProductsPage extends BasePage {
         return null;
     }
 
+    public String getInventoryTitle(String inventoryName){
+        WebElement inventory = findInventory(inventoryName);
+        return inventory.findElement(inventoryTitle).getText();
+    }
+
+    public String getItemPrice(String inventoryName){
+        WebElement inventory = findInventory(inventoryName);
+        return inventory.findElement(inventoryItemPrice).getText();
+    }
+
+    public String getInventoryItemDesc(String inventoryName){
+        WebElement inventory = findInventory(inventoryName);
+        return inventory.findElement(inventoryItemDesc).getText();
+    }
+
     public void clickAddProductToCart(String inventoryName){
         WebElement inventory = findInventory(inventoryName);
         inventory.findElement(addToCartButton).click();
+    }
+
+    public void removeProductFromCart(String inventoryName){
+        WebElement inventory = findInventory(inventoryName);
+        inventory.findElement(removeButton).click();
     }
 
     public InventoryDetailsPage clickProductName(String inventoryItemName){

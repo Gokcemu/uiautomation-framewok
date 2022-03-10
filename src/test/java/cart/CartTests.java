@@ -9,7 +9,6 @@ import static org.testng.Assert.assertTrue;
 import static utils.Config.SAUCE_LABS_BACKPACK;
 
 public class CartTests extends BaseTests {
-
     @Test
     public void testSwitchCartPageSuccessful(){
         CartPage cartPage = productsPage.clickCartButton();
@@ -25,5 +24,4 @@ public class CartTests extends BaseTests {
         assertTrue(cartPage.removedProductDisappear(SAUCE_LABS_BACKPACK),
                 "Add product to cart and remove from cart test failed");
     }
-
 }
