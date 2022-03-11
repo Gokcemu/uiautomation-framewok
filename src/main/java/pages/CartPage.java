@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 
 public class CartPage extends BasePage {
-    private WebDriver driver;
+
     private By quantity = By.xpath("//div[@class='cart_quantity_label']");
     private By description = By.xpath("//div[@class='cart_desc_label']");
     private By continueShoppingButton = By.id("continue-shopping");
@@ -20,7 +20,8 @@ public class CartPage extends BasePage {
     private By removeInventoryButton = By.xpath("//button[@class='btn btn_secondary btn_small cart_button']");
 
     public CartPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
+       // this.driver = driver;
     }
 
     public String getCartPageTitle() {
@@ -56,6 +57,12 @@ public class CartPage extends BasePage {
         return null;
     }
 
+    public boolean checkProductinCart(String InventoryName){
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(inventoryItems));
+        return true;
+    }
+
     public String getInventoryName(String InventoryName){
         WebElement inventory = findInventory(InventoryName);
         return inventory.findElement(inventoryItems).getText();
@@ -71,19 +78,18 @@ public class CartPage extends BasePage {
         return inventory.findElement(inventoryItemDesc).getText();
     }
 
-    public boolean checkProductinCart(String InventoryName){
-        ExpectedConditions.invisibilityOfElementLocated(inventoryItems);
-        return true;
-    }
-
     public void removeProductCartButton(String InventoryName) {
         WebElement inventory = findInventory(InventoryName);
         inventory.findElement(removeInventoryButton).click();
     }
 
     public boolean removedProductDisappear(String InventoryName) {
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(inventoryItems));
         return true;
+    }
+
+    public void reloadCartPage(){
+        driver.navigate().refresh();
     }
 }

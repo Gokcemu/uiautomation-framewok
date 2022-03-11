@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="SauceDemo-Suite" >
+    <test name="SauceDemoTests" >
+        <classes>
+            <class name="base.BaseTests" />
+            <class name="cart.CartTests" />
+            <class name="checkout.CheckOutOrderTests" />
+            <class name="login.LoginTests" />
+            <class name="product.ProductTests" />
+        </classes>
+    </test>
+</suite>

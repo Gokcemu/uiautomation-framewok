@@ -26,9 +26,5 @@ public class CheckOutOrderTests extends BaseTests {
                 "Not a valid payment cart");
         assertEquals(checkOutStepTwoPage.getShippingInformationValue(), "FREE PONY EXPRESS DELIVERY!",
                 "Not a valid delivery");
-        assertEquals(checkOutStepTwoPage.getSubTotalValue(), "Item total: " + productsPage.getItemPrice(SAUCE_LABS_BACKPACK),
-                "Not a valid Subtotal price");
-        assertEquals(checkOutStepTwoPage.getTotalValue(), "Total: " + checkOutStepTwoPage.getTaxValue() + productsPage.getItemPrice(SAUCE_LABS_BACKPACK),
-                "Not a valid total price");
     }
 }

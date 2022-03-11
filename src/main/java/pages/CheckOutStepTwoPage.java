@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class CheckOutStepTwoPage extends BasePage {
-    private WebDriver driver;
+
     private By cartQuantityLabel = By.xpath("//div[@class='cart_quantity_label']");
     private By cartDescLabel = By.xpath("//div[@class='cart_desc_label']");
     private By paymentInformation = By.xpath("//div[text()='Payment Information:']");
@@ -19,7 +19,8 @@ public class CheckOutStepTwoPage extends BasePage {
     private By cancelButton = By.id("cancel");
 
     public CheckOutStepTwoPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
+       // this.driver = driver;
     }
 
     public String getPaymentInformationValue(){

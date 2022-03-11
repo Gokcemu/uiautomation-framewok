@@ -15,26 +15,33 @@ import static utils.Config.*;
 
 public class LoginTests {
 
-    private WebDriver driver;
-    private LoginPage loginPage;
+    protected static WebDriver driver;
+    protected static LoginPage loginPage;
+    protected static ProductsPage productsPage;
 
     @BeforeClass
-    private void setUp(){
+    public static void setUp(){
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.get(LOGIN_URL);
         loginPage = new LoginPage(driver);
+        productsPage = new ProductsPage(driver);
         driver.manage().window().fullscreen();
     }
     
     @BeforeMethod
-    public void goLogin(){
+    public static void goLogin(){
         driver.get(LOGIN_URL);
     }
 
+
     @AfterClass
-    private void tearDown(){
+    public static void tearDown(){
         driver.quit();
+    }
+
+    public static WebDriver getWebDriver(){
+        return driver;
     }
 
 

@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class CheckOutStepOnePage extends BasePage {
-    private WebDriver driver;
+
     private By checkOutStepOnePageTitle = By.xpath("//span[@class='title']");
     private By firstNameField  = By.id("first-name");
     private By lastNameField   = By.id("last-name");
@@ -13,7 +13,8 @@ public class CheckOutStepOnePage extends BasePage {
     private By continueButton  = By.id("continue");
 
     public CheckOutStepOnePage(WebDriver driver){
-        this.driver = driver;
+        super(driver);
+        //  this.driver = driver;
     }
 
     public String getCheckOutStepPageOneTitle(){

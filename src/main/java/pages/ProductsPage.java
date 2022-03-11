@@ -19,11 +19,9 @@ public class ProductsPage extends BasePage {
     private By sortContainer = By.xpath("//span[@class='select_container']");
 
 
-    private WebDriver driver;
-
 
     public ProductsPage(WebDriver driver){
-        this.driver = driver;
+        super(driver);
     }
 
     public String getPageTitle(){

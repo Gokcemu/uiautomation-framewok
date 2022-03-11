@@ -1,1 +1,6 @@
+inventory\InventoryTests.class
+checkout\CheckOutOrderTests.class
+base\BaseTests.class
 product\ProductTests.class
+cart\CartTests.class
+login\LoginTests.class

@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 
 public class InventoryDetailsPage extends BasePage {
 
-    private WebDriver driver;
     private By backToProductsButton = By.xpath("//div[@class='left_component']");
     private By addToCartButton = By.xpath("//button[@class='btn btn_primary btn_small btn_inventory']");
     private By removeButton = By.xpath("//button[@class='btn btn_secondary btn_small btn_inventory']");
@@ -15,7 +14,8 @@ public class InventoryDetailsPage extends BasePage {
 
 
     public InventoryDetailsPage(WebDriver driver){
-        this.driver = driver;
+       // this.driver = driver;
+        super(driver);
     }
 
     public ProductsPage clickBackToProducts(){

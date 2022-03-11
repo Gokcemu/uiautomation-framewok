@@ -23,5 +23,17 @@ public class CartTests extends BaseTests {
         cartPage.removeProductCartButton(SAUCE_LABS_BACKPACK);
         assertTrue(cartPage.removedProductDisappear(SAUCE_LABS_BACKPACK),
                 "Add product to cart and remove from cart test failed");
+        cartPage.clickContinueShopping();  //return to products for next test
+    }
+
+    @Test
+    public void testResetProductsInCart(){
+        productsPage.clickAddProductToCart(SAUCE_LABS_BACKPACK);
+        CartPage cartPage = productsPage.clickCartButton();
+        cartPage.clickBurgerMenuButton();
+        cartPage.clickResetAppStateButton();
+        cartPage.reloadCartPage();
+        assertEquals(cartPage.removedProductDisappear(SAUCE_LABS_BACKPACK), true ,
+                "Product couldn't removed.");
     }
 }

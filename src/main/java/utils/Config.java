@@ -7,8 +7,8 @@ public class Config {
     public static final String DEFAULT_PASS = "secret_sauce";
     public static final String NULL_USER    = "";
     public static final String NULL_PASS    = "";
-    public static final String FAIL_USER    = "wrong_user";
-    public static final String FAIL_PASS    = "wrong_pass";
+    public static final String FAIL_USER    = "invalid_user";
+    public static final String FAIL_PASS    = "invalid_pass";
     //Products Data
     public static final String SAUCE_LABS_BACKPACK = "Sauce Labs Backpack";
     public static final String SAUCE_LABS_BIKE_LIGHT = "Sauce Labs Bike Light";
@@ -25,5 +25,4 @@ public class Config {
     public static final String FIRST_NAME = "DummyFirstName";
     public static final String LAST_NAME = "DummyLastName";
     public static final String POSTAL_CODE = "Dummy_PostalCode";
-
 }

@@ -5,12 +5,13 @@ import org.openqa.selenium.WebDriver;
 
 public class CheckOutCompletePage extends BasePage {
 
-    private WebDriver driver;
+
     private By checkOutCompleteHeader = By.xpath("//h2[@class='complete-header']");
     private By backToProductsButton = By.id("back-to-products");
 
     public CheckOutCompletePage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
+        //this.driver = driver;
     }
 
     public String getCheckOutCompleteTitle(){

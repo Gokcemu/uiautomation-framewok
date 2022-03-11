@@ -10,7 +10,7 @@ import static utils.Config.SAUCE_LABS_BACKPACK;
 public class ProductTests extends BaseTests {
 
     @Test
-    public void addProducttoCart(){
+    public void testAddProducttoCart(){
         productsPage.clickAddProductToCart(SAUCE_LABS_BACKPACK);
         CartPage cartPage = productsPage.clickCartButton();
         cartPage.checkProductinCart(SAUCE_LABS_BACKPACK);

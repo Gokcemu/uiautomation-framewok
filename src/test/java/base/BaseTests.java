@@ -8,15 +8,17 @@ import org.testng.annotations.BeforeMethod;
 import pages.LoginPage;
 import pages.ProductsPage;
 
+import java.sql.Driver;
+
 import static utils.Config.*;
 
 public class BaseTests {
-    private WebDriver driver;
-    protected LoginPage loginPage;
-    protected ProductsPage productsPage;
+    private static WebDriver driver;
+    protected static LoginPage loginPage;
+    protected static ProductsPage productsPage;
 
    @BeforeClass
-   public void setUp(){
+   public static void setUp(){
        System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
        driver = new ChromeDriver();
        driver.get(LOGIN_URL);
@@ -28,9 +30,13 @@ public class BaseTests {
        driver.manage().window().fullscreen();
    }
 
+        public static WebDriver getWebDriver(){
+        return driver;
+    }
+
 
    @AfterClass
-    public void tearDown(){
+    public static void tearDown(){
        driver.quit();
    }
 }
