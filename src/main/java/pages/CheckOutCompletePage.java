@@ -11,7 +11,6 @@ public class CheckOutCompletePage extends BasePage {
 
     public CheckOutCompletePage(WebDriver driver) {
         super(driver);
-        //this.driver = driver;
     }
 
     public String getCheckOutCompleteTitle(){

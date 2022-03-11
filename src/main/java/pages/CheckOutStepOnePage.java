@@ -11,10 +11,11 @@ public class CheckOutStepOnePage extends BasePage {
     private By postalCodeField = By.id("postal-code");
     private By cancelButton    = By.id("cancel");
     private By continueButton  = By.id("continue");
+    private By errorMessageContainer = By.xpath("//div[@class='error-message-container error']");
+
 
     public CheckOutStepOnePage(WebDriver driver){
         super(driver);
-        //  this.driver = driver;
     }
 
     public String getCheckOutStepPageOneTitle(){
@@ -41,5 +42,9 @@ public class CheckOutStepOnePage extends BasePage {
     public CartPage clickCancelButton(){
         driver.findElement(cancelButton).click();
         return new CartPage(driver);
+    }
+
+    public String getErrorMessage(){
+        return driver.findElement(errorMessageContainer).getText();
     }
 }

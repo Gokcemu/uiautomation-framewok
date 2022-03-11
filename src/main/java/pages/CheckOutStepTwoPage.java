@@ -20,7 +20,6 @@ public class CheckOutStepTwoPage extends BasePage {
 
     public CheckOutStepTwoPage(WebDriver driver) {
         super(driver);
-       // this.driver = driver;
     }
 
     public String getPaymentInformationValue(){
